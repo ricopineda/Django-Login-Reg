@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title> Index Page </title>
+			{% load static %}
+			<link rel="stylesheet" href="{% static 'login/css/style.css' %}" media="screen" title="no title"  charset="utf-8">			
+		</head>
+		<body>
+			<h1> Register </h1>
+			<form action="register" method="post">
+				{% csrf_token %}
+				<label for="first_name"> First Name </label><input type="text" name="first_name">
+				<label for="last_name"> Last Name </label><input type="text" name="last_name">
+				<label for="email"> Email </label><input type="text" name="email">
+				<label for="password"> Password </label><input type="password" name="password">
+				<label for="conirm_password"> Confirm Password </label><input type="password" name="confirm_password">
+				<input type="submit" value="Register">
+			</form>
+			{% if messages %}
+				{% for error in messages %}
+					<p> {{error}} </p>
+				{% endfor %}
+			{% endif %}
+			<h1> Login </h1>
+			<form action="login" method="post">
+				{% csrf_token %}
+				<label for="email"> Email </label><input type="text" name="email">
+				<label for="password"> Password </label><input type="password" name="password">
+				<input type="submit" value="Login">
+			</form>
+		</body>
+	</html>

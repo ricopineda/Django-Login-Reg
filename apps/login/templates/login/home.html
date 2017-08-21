@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title> Home Page </title>
+		</head>
+		<body>
+			<h1> Welcome {{ request.session.id }} </h1>
+			<form action="logout" method="post">
+				{% csrf_token %}
+				<input type="submit" value="Logout">
+			</form>
+		</body>
+	</html>
